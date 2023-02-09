@@ -65,3 +65,72 @@ console.log('Nested destructuring = ', d, a, b, c);
 // Default values for elements instead of undefined
 const [p = 1, q = 2, r = 3] = [4, 7];
 console.log('Elements are = ', p, q, r);
+
+// ############ Object Destructuring #############
+console.log('##### Object destructuring #####');
+
+// Assigning value with variable name same as object property
+const { name, openingHours, categories } = restaurant;
+console.log(
+  'value of variables after destructuring = ',
+  name,
+  openingHours,
+  categories
+);
+
+// Assigning value with different variable name
+const {
+  name: restName,
+  openingHours: restHours,
+  categories: restCategory,
+} = restaurant;
+console.log(
+  'value with different variable name = ',
+  restName,
+  restHours,
+  restCategory
+);
+
+// Setting default values
+const { menuItem = 'default value', starterMenu: resStarters = [] } =
+  restaurant;
+console.log('values are = ', menuItem, resStarters);
+
+// Mutating variables
+let firstNum = 1;
+let secondNum = 2;
+const thirdObj = { firstNum: 12, secondNum: 14 };
+({ firstNum, secondNum } = thirdObj);
+console.log('Re-assignment = ', firstNum, secondNum);
+
+// nested objects
+const nestedObj = {
+  a: {
+    abc: 1,
+    def: 2,
+  },
+};
+const {
+  a: { abc, def },
+} = nestedObj;
+console.log('value after nested dest = ', abc, def);
+
+// passing object as a parameter (object destructuring)
+// order of parameters wont matter as name is kept same
+// we can also set default values of parameters in case no value passed
+function orderFood({ place = 'NYC', starters, time = '1 AM', mainCourse }) {
+  const result = `${starters} will come in starters & ${mainCourse} will come in main course, delivery at ${place} at ${time}`;
+  console.log(result);
+}
+
+orderFood({
+  starters: 'abc',
+  mainCourse: 'def',
+  place: 'xyz',
+  time: '2 PM',
+});
+
+orderFood({
+  starters: 'wer',
+  mainCourse: 'fgh',
+});
