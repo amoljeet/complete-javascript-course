@@ -11,6 +11,9 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+  orderFood: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
 
   openingHours: {
     thu: {
@@ -27,3 +30,38 @@ const restaurant = {
     },
   },
 };
+
+// ######### Array Destructuring ##############
+console.log('###### Array destructuing ######');
+
+// Assign value to variables
+const demoArray = [1, 2, 3, 4];
+const [w, x, y, z] = demoArray;
+console.log('variable values = ', w, x, y, z);
+
+// Assign value of 1st two variables
+const [first, second] = restaurant.categories;
+console.log('1st & 2nd element = ', first, second);
+
+// Assign value of specific elements of array
+const [firstEl, , thirdEl] = restaurant.categories;
+console.log('1st & 3rd element = ', firstEl, thirdEl);
+
+// change value of variables with Array Destructuring
+let [main, secondary] = restaurant.categories;
+console.log('Main & Secondary meal = ', main, secondary);
+[secondary, main] = [main, secondary];
+console.log('Main & secondary meal after change = ', main, secondary);
+
+// Receive two return value from function
+const [starterMeal, mainMeal] = restaurant.orderFood(2, 1);
+console.log('Food ordered = ', starterMeal, mainMeal);
+
+// Nested destructuring
+const nestedArr = [5, [1, 2, 3]];
+const [d, [a, b, c]] = nestedArr;
+console.log('Nested destructuring = ', d, a, b, c);
+
+// Default values for elements instead of undefined
+const [p = 1, q = 2, r = 3] = [4, 7];
+console.log('Elements are = ', p, q, r);
