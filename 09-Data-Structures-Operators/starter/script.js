@@ -67,6 +67,7 @@ const [p = 1, q = 2, r = 3] = [4, 7];
 console.log('Elements are = ', p, q, r);
 
 // ############ Object Destructuring #############
+console.log('');
 console.log('##### Object destructuring #####');
 
 // Assigning value with variable name same as object property
@@ -134,3 +135,50 @@ orderFood({
   starters: 'wer',
   mainCourse: 'fgh',
 });
+
+// ######## Spread Operator ########
+console.log('');
+console.log('####### Spread Operator ########');
+
+// Spread operator
+const arrayOfEvenNums = [2, 4, 6];
+const newArray = [1, 3, ...arrayOfEvenNums];
+console.log('new array = ', newArray);
+console.log('elements of array = ', ...newArray);
+
+/*
+Note : 
+  - Iterables = array,string,map,set but not objects
+  - multiple values separted by a comma are only expected => when passing an argument in function or creating a new array
+*/
+
+// Spread string
+const spreadStr = 'IRON';
+const resultStrArr = [...spreadStr];
+console.log(resultStrArr);
+
+// Spread operator to pass args in function
+function orderFood(starter, mainCourse, desert) {
+  console.log(
+    `I'll start with ${starter}, fill up with ${mainCourse} & finish with ${desert} `
+  );
+}
+
+const orderByCustomer = ['Burger', 'Pizza', 'Ice-cream'];
+
+orderFood(...orderByCustomer);
+
+// Spread operator on object
+const employee = {
+  name: 'abc',
+  place: 'def',
+};
+const newEmployee = { phone: 1234, ...employee };
+console.log(newEmployee);
+
+// creating copy of object with spread operator actual copy is created
+const employeeCopy = { ...newEmployee };
+employeeCopy.phone = 5890;
+
+console.log('Phone of new employee = ', newEmployee.phone);
+console.log('Phone of employee copy = ', employeeCopy.phone);
