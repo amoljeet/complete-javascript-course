@@ -182,3 +182,54 @@ employeeCopy.phone = 5890;
 
 console.log('Phone of new employee = ', newEmployee.phone);
 console.log('Phone of employee copy = ', employeeCopy.phone);
+
+// ####### Rest Pattern and parameters #######
+console.log('');
+console.log('####### Rest Pattern & Parameters #######');
+
+/*
+Note :-
+  - spread operator and rest pattern have same syntax
+  - three dots on left of assignment operator ( = ) makes it rest pattern
+  - three dots on right of assignment operator ( = ) makes it spread operator
+  - rest element should be last element
+  - there should be only 1 rest element in destructuring assignment
+*/
+
+// spread because on right side of =
+const spreadArr = [1, 2, ...[4, 5, 6]];
+console.log('Spread Array is = ', spreadArr);
+
+// rest pattern because on left side of =
+const [restFirstEl, restSecEl, ...restOtherEl] = [1, 2, 3, 4, 5];
+console.log('Elements are = ', restFirstEl, restSecEl, restOtherEl);
+
+// rest pattern for objects
+const restOriginalObject = {
+  monday: 1,
+  tuesday: 2,
+  wednesday: 3,
+};
+
+const { monday, ...restWeek } = restOriginalObject;
+console.log('Object after rest operation = ', monday, restWeek);
+
+// Rest parameters - Function
+const restParamsFunc = function (...numbers) {
+  // rest parameters received are in form of an array
+  let sum = 0;
+  numbers.forEach(number => {
+    sum += number;
+  });
+  console.log(`I/P received is ${numbers} & sum is ${sum}`);
+};
+restParamsFunc(1, 2);
+restParamsFunc(1, 2, 3, 4);
+restParamsFunc(1, 2, 3, 4, 5, 6);
+
+// Rest parameeters - Function
+const restParamsFunc2 = function (num, ...nums) {
+  console.log('First param = ', num);
+  console.log('Second param = ', nums);
+};
+restParamsFunc2(10, 20, 30, 40);
