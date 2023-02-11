@@ -259,3 +259,15 @@ console.log(undefined && 'FALSE');
 console.log(0 && 'HELLO');
 console.log(7 && 'YO');
 console.log(7 && 'YO' && true && null && 'HELLO');
+
+// ####### Nullish Coalescing operator #######
+console.log('');
+console.log('##### Nullish Coalescaling operator #####');
+
+/*
+Nullish value = null and undefined values (not 0 or "")
+ */
+
+console.log(null ?? 'hello');
+console.log(null ?? undefined ?? 0 ?? 'HELLO');
+console.log(null ?? false ?? 'Hello');
