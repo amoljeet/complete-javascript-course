@@ -233,3 +233,41 @@ const restParamsFunc2 = function (num, ...nums) {
   console.log('Second param = ', nums);
 };
 restParamsFunc2(10, 20, 30, 40);
+
+// ####### Short Circuiting ##########
+console.log('');
+console.log('###### Short Circuiting #######');
+
+/*
+Note:-
+  - Logical operators can use any data type and return any data type
+  - short circuiting (OR) => if the 1st value is a truthy value it will immediately return that value
+  - (AND) => And operator short circuits when the first value is falsy and immediately returns that falsy value without even evaluating the operand, if evaluation is truthy then last value is returned
+ */
+
+// OR operator
+console.log('---- OR ----');
+console.log(1 || 'ABC');
+console.log('' || 'Hello');
+console.log(true || 0);
+console.log(undefined || null); // null is also falsy value
+console.log(0 || '' || undefined || 'ABC' || null);
+
+// AND operator
+console.log('---- AND ----');
+console.log(undefined && 'FALSE');
+console.log(0 && 'HELLO');
+console.log(7 && 'YO');
+console.log(7 && 'YO' && true && null && 'HELLO');
+
+// ####### Nullish Coalescing operator #######
+console.log('');
+console.log('##### Nullish Coalescaling operator #####');
+
+/*
+Nullish value = null and undefined values (not 0 or "")
+ */
+
+console.log(null ?? 'hello');
+console.log(null ?? undefined ?? 0 ?? 'HELLO');
+console.log(null ?? false ?? 'Hello');
