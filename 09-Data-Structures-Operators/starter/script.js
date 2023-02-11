@@ -271,3 +271,59 @@ Nullish value = null and undefined values (not 0 or "")
 console.log(null ?? 'hello');
 console.log(null ?? undefined ?? 0 ?? 'HELLO');
 console.log(null ?? false ?? 'Hello');
+
+// ##### Assignment Operator #####
+console.log('');
+console.log('##### Assignment operator #####');
+
+// OR assignmemt operator
+const restaurant1 = {
+  name: 'ABC',
+  numGuests: 14,
+};
+
+const restaurant2 = {
+  name: 'DEF',
+  owner: 'owner',
+};
+
+// restaurant1.numGuests = restaurant1.numGuests || 20;
+// restaurant2.numGuests = restaurant2.numGuests || 25;
+
+// another way or writing same thing
+
+restaurant1.numGuests ||= 20;
+restaurant2.numGuests ||= 25;
+
+console.log('Restaurant 1 & 2 are = ', restaurant1, restaurant2);
+
+/*
+Note :- 
+  - one issue with OR assignment operator is it will take 0 as falsy value even if it is perfectly fine w.r.t use case e.g. number of guests can be 0
+  - to solve this we have we can use nullish assignment 
+*/
+
+// Nullish assignment operator (null or undefined)
+const restaurant3 = {
+  name: 'abc',
+  numOfGuests: 0,
+};
+
+const restaurant4 = {
+  name: 'def',
+  owner: 'xyz',
+};
+
+restaurant3.numOfGuests ??= 14;
+restaurant4.numOfGuests ??= 15;
+console.log('Restaurant 3 & 4 = ', restaurant3, restaurant4);
+
+// And assignment operator
+
+// restaurant3.owner = restaurant3.owner && 'anonymous';
+// restaurant4.owner = restaurant4.owner && 'anonymous';
+
+restaurant3.owner &&= 'anonymous';
+restaurant4.owner &&= 'anonymous';
+
+console.log('Restaurant owners = ', restaurant3, restaurant4);
