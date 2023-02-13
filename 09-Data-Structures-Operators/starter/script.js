@@ -327,3 +327,23 @@ restaurant3.owner &&= 'anonymous';
 restaurant4.owner &&= 'anonymous';
 
 console.log('Restaurant owners = ', restaurant3, restaurant4);
+
+// ##### For Of Loop ######
+console.log('');
+console.log('###### for-of Loop ######');
+
+// For-Of Loop
+const arrayOfPersons = ['ABC', 'DEF', 'GHI'];
+for (const person of arrayOfPersons) {
+  console.log('Person = ', person);
+}
+
+//  Position of element also
+for (const person of arrayOfPersons.entries()) {
+  console.log('Person = ', person);
+}
+
+// destructuring in for-of loop
+for (const [position, value] of arrayOfPersons.entries()) {
+  console.log(`${position + 1} person is ${value}`);
+}
