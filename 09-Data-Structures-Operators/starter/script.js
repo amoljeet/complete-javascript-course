@@ -347,3 +347,52 @@ for (const person of arrayOfPersons.entries()) {
 for (const [position, value] of arrayOfPersons.entries()) {
   console.log(`${position + 1} person is ${value}`);
 }
+
+// ####### Enhanced Object Literals #######
+console.log('');
+console.log('###### Enhanced Object Literals ######');
+
+// writing object property
+const daysObjLit = {
+  mon: 'monday',
+  tue: 'tuesday',
+};
+
+const daysObjLit2 = {
+  wed: 'wednesday',
+  thus: 'thursday',
+};
+
+const combinedDaysObj = {
+  daysObjLit: daysObjLit,
+  // ES6 enhanced object literals
+  daysObjLit2,
+};
+
+console.log(combinedDaysObj);
+
+// writing function
+const functionObjLit = {
+  addition: function (num1, num2) {
+    console.log('Addition from inside Obj = ', num1 + num2);
+  },
+
+  // ES6 enhanced object literals
+  subtraction(num1, num2) {
+    console.log('Subtraction from inside Obj = ', num1 - num2);
+  },
+};
+
+functionObjLit.addition(4, 2);
+functionObjLit.subtraction(4, 2);
+
+// computer property names (square bracket syntax to compute)
+const daysOfWeek = ['Mon', 'Tue', 'Wed'];
+
+const weekDaysObj = {
+  [daysOfWeek[0]]: 'Monday',
+  [daysOfWeek[1]]: 'Tuesday',
+  [daysOfWeek[`${4 - 2}`]]: 'Wednesday',
+};
+
+console.log('Weekdays = ', weekDaysObj);
