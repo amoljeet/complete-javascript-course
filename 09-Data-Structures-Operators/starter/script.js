@@ -396,3 +396,57 @@ const weekDaysObj = {
 };
 
 console.log('Weekdays = ', weekDaysObj);
+
+// ###### Optional chaining ######
+console.log('');
+console.log('###### Optional Chaining ######');
+
+/**
+ * In optional chaining if certain property doesnt exist undefined is returned immediately
+ * If optional chaining not there an error is thrown over non existent property
+ */
+
+const daysOfWeekOpCh = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+const weekOpCh = {
+  mon: {
+    open: '10 AM',
+  },
+  tue: {
+    open: '1 PM',
+  },
+  fri: {
+    open: '5 PM',
+  },
+};
+
+for (const day of daysOfWeekOpCh) {
+  const result = weekOpCh[day]?.open ?? 'Closed';
+  console.log(`on ${day} we open at ${result}`);
+}
+
+// Optional chaining on methods
+const methodsOpCh = {
+  sum(num1, num2) {
+    return num1 + num2;
+  },
+};
+
+console.log(
+  'Optional chaining func call = ',
+  methodsOpCh.sum?.(2, 3) ?? 'Method doesnt exist'
+);
+console.log(
+  'Optional chaining func call = ',
+  methodsOpCh.diff?.(4, 2) ?? 'Method doesnt exist'
+);
+
+// Optional chaining on Arrays
+const arrayOpCh = [{ name: 'ABC' }];
+console.log(
+  'first name of Array = ',
+  arrayOpCh[0]?.name ?? 'User doesnt exist'
+);
+console.log(
+  'second name of Array = ',
+  arrayOpCh[1]?.name ?? 'user doesnt exist'
+);
