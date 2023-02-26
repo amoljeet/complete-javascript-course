@@ -450,3 +450,52 @@ console.log(
   'second name of Array = ',
   arrayOpCh[1]?.name ?? 'user doesnt exist'
 );
+
+// ##### Looping Objects ######
+console.log('');
+console.log('###### Looping Objects ######');
+
+// looping through object.keys
+const daysOfWeekRestOpen = {
+  mon: '11 AM',
+  tue: '2 PM',
+  fri: '5PM',
+};
+
+const daysRestOpen = Object.keys(daysOfWeekRestOpen);
+let resultStr = `We are open ${daysRestOpen.length} on `;
+
+for (const day of daysRestOpen) {
+  resultStr += `${day}, `;
+}
+console.log(resultStr);
+
+const monthsOfYear = {
+  Jan: {
+    open: '1 Jan',
+    close: '26 Jan',
+  },
+  Jun: {
+    open: '1 Jun',
+    close: '21 Jun',
+  },
+};
+
+// Object keys as array
+const monthsArray = Object.keys(monthsOfYear);
+console.log(monthsArray);
+
+// Object values as array
+const valueArray = Object.values(monthsOfYear);
+console.log(valueArray);
+
+// complete object as array
+const entriesArray = Object.entries(monthsOfYear);
+console.log(entriesArray);
+
+// Looping though Object.entries
+for (const [keyValue, { open, close }] of Object.entries(monthsOfYear)) {
+  console.log(
+    `In the month of ${keyValue} we open at ${open} & close at ${close}`
+  );
+}
