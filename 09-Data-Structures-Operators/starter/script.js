@@ -563,3 +563,61 @@ console.log('Family guy set = ', familyGuySet);
 
 const familyGuyArr = [...familyGuySet];
 console.log('Family guy array = ', familyGuyArr);
+
+// ###### Maps ######
+console.log('');
+console.log('###### Maps ######');
+
+/**
+ * - Used to map values to key
+ * - diff b/w map & object => maps can have any data type as key, objects mostly have string as data type for key
+ * - set method returns the updated map
+ * - to read data from map we use get method
+ * - we can also set array as key in map
+ */
+
+const avengersMap = new Map();
+avengersMap.set(1, 'Iron man');
+avengersMap.set('2nd avenger', 'Cap America');
+
+console.log(avengersMap);
+
+// set returns updated map
+const familyGuyMap = new Map();
+familyGuyMap.set('1st Char', 'Peter');
+
+const resultMapFamGuy = familyGuyMap.set(2, 'Lois');
+console.log('Map returns updated map = ', resultMapFamGuy);
+
+familyGuyMap
+  .set('children', ['Chris', 'Meg', 'Stewie'])
+  .set(true, 'Yes dog there')
+  .set('Neighbours', ['Joe', 'Quagmire', 'Cleaveland']);
+
+console.log('Family guy map = ', familyGuyMap);
+
+// Get method (data type matters while getting set)
+console.log(familyGuyMap.get(true));
+console.log(familyGuyMap.get('Neighbours'));
+
+// check map contains key
+console.log(familyGuyMap.has('Neighbours'));
+
+// delete in set
+familyGuyMap.delete('children');
+console.log('Set after deletion = ', familyGuyMap);
+
+// size in map
+console.log(familyGuyMap.size);
+
+// Array as key in  map (pass by refernce cant directly access by [1,2] so variable is required)
+const arrayOfCharsFamGuy = [1, 2];
+familyGuyMap.set(arrayOfCharsFamGuy, ['Chris', 'Meg', 'Stewie']);
+console.log(
+  `Value when key is ${arrayOfCharsFamGuy}`,
+  familyGuyMap.get(arrayOfCharsFamGuy)
+);
+
+// clear map
+familyGuyMap.clear();
+console.log('Map after clearing = ', familyGuyMap);
