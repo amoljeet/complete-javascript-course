@@ -499,3 +499,67 @@ for (const [keyValue, { open, close }] of Object.entries(monthsOfYear)) {
     `In the month of ${keyValue} we open at ${open} & close at ${close}`
   );
 }
+
+// ###### Set ######
+console.log('');
+console.log('###### Set ######');
+
+/**
+ * - Set is a collection of unique values
+ * - we need to pass iterable in set & most common iterable is an array
+ * - order does not matter in set
+ */
+
+const characterFamilyGuy = new Set([
+  'peter',
+  'meg',
+  'brian',
+  'meg',
+  'joe',
+  'lois',
+  'meg',
+  'lois',
+]);
+
+console.log('Unique values of characters of family guy = ', characterFamilyGuy);
+
+// Size of set
+console.log('Size of set is = ', characterFamilyGuy.size);
+
+// Find element in set
+console.log('Is lois part of show = ', characterFamilyGuy.has('lois'));
+console.log('Is phil part of show = ', characterFamilyGuy.has('phil'));
+
+// add element in set
+characterFamilyGuy.add('chris');
+console.log('characters of show after addition = ', characterFamilyGuy);
+
+// delete element in set
+characterFamilyGuy.delete('joe');
+console.log('characters after deletion = ', characterFamilyGuy);
+
+// Iterate over sets
+for (const character of characterFamilyGuy) {
+  console.log('Charcter = ', character);
+}
+
+console.log('String is also iterable = ', new Set('Hello'));
+
+// add values of set in array
+const familyGuyCharac = [
+  'peter',
+  'lois',
+  'brian',
+  'peter',
+  'lois',
+  'chris',
+  'meg',
+  'brian',
+  'stewie',
+];
+
+const familyGuySet = new Set(familyGuyCharac);
+console.log('Family guy set = ', familyGuySet);
+
+const familyGuyArr = [...familyGuySet];
+console.log('Family guy array = ', familyGuyArr);
