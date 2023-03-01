@@ -621,3 +621,32 @@ console.log(
 // clear map
 familyGuyMap.clear();
 console.log('Map after clearing = ', familyGuyMap);
+
+// ##### Map Iteration #####
+console.log('');
+console.log('##### Map Iteration #####');
+
+// Pass array with multiple array to set values (same thing returned by Object.entries() an array of arrays)
+const questionMap = new Map([
+  ['Question', 'What are popular coding languages ?'],
+  [1, 'Java'],
+  [2, 'C++'],
+  [3, 'JavaScript'],
+  ['Correct', 3],
+  [true, 'YEAAHHH !!'],
+  [false, 'OHHHHHH !!'],
+]);
+console.log('Map with multiple values = ', questionMap);
+
+// Convert objects to map
+const mapObj = {
+  abc: 'alphabests',
+  123: 'numbers',
+};
+const mapObjConvert = new Map(Object.entries(mapObj));
+console.log('Map after obj conversion = ', mapObj);
+
+// convert map to array
+console.log('Map to array is = ', [...mapObjConvert]);
+console.log('Map keys to array is = ', [...mapObjConvert.keys()]);
+console.log('Map values to array is = ', [...mapObjConvert.values()]);
