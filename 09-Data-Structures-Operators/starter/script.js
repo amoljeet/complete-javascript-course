@@ -650,3 +650,35 @@ console.log('Map after obj conversion = ', mapObj);
 console.log('Map to array is = ', [...mapObjConvert]);
 console.log('Map keys to array is = ', [...mapObjConvert.keys()]);
 console.log('Map values to array is = ', [...mapObjConvert.values()]);
+
+// ##### String - 1 #####
+console.log('');
+console.log('##### String - 1 #####');
+
+const airline = 'Tap Air Portugal';
+const plane = 'A320';
+
+// Position of character in string
+console.log('1st character of plane = ', plane[0]);
+
+// Length if String
+console.log('Length of String = ', plane.length);
+
+// Methods
+console.log('Index of r = ', airline.indexOf('i'));
+console.log('Last index of r = ', airline.lastIndexOf('i'));
+console.log('Index of word not present = ', airline.indexOf('HEllo'));
+
+console.log('Slice method = ', airline.slice(4));
+console.log('Slice method start & end = ', airline.slice(4, 7));
+
+console.log(
+  'Slice with dynamic space = ',
+  airline.slice(0, airline.indexOf(' '))
+);
+console.log(
+  'Slice with dyn space = ',
+  airline.slice(airline.lastIndexOf(' ') + 1)
+);
+
+console.log('slice from end = ', airline.slice(-4));
