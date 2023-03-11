@@ -700,3 +700,15 @@ console.log('Does string contains A320 = ', planeStr.includes('A320'));
 console.log('Does String contains boeing = ', planeStr.includes('boeing'));
 console.log('Does String starts with A32 = ', planeStr.startsWith('A32 '));
 console.log('Does string ends with neo = ', planeStr.endsWith('neo'));
+
+// ##### String - 3 #####
+console.log('');
+console.log('##### String 3 #####');
+
+const familyGuyCharacter = 'Peter Griffin';
+console.log('Split function on string = ', familyGuyCharacter.split(' '));
+
+const [firstNameFamGuy, lastNameFamGuy] = familyGuyCharacter.split(' ');
+console.log(
+  `After split FirstName = ${firstNameFamGuy} and lastName = ${lastNameFamGuy}`
+);
