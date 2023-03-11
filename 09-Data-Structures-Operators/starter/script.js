@@ -682,3 +682,21 @@ console.log(
 );
 
 console.log('slice from end = ', airline.slice(-4));
+
+// ##### String - 2 #####
+console.log('');
+console.log('##### String 2 #####');
+
+const airlinePassenger = 'PeTer GrIfFin';
+console.log('Uppercase string = ', airlinePassenger.toUpperCase());
+console.log('Lowercase string = ', airlinePassenger.toLowerCase());
+
+const emailPeterGriffin = '  peter-GRIFFIn@famILYGuy  ';
+console.log('Corrected email = ', emailPeterGriffin.toLowerCase().trim());
+
+// Booleans
+const planeStr = 'A320neo';
+console.log('Does string contains A320 = ', planeStr.includes('A320'));
+console.log('Does String contains boeing = ', planeStr.includes('boeing'));
+console.log('Does String starts with A32 = ', planeStr.startsWith('A32 '));
+console.log('Does string ends with neo = ', planeStr.endsWith('neo'));
