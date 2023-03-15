@@ -45,3 +45,22 @@ const printPerson = function (value, obj) {
 console.log('Arguments values before func call = ', personVal, personObj);
 printPerson(personVal, personObj);
 console.log('Arguments values after func call = ', personVal, personObj);
+
+// ###### Higher order functions ######
+console.log('');
+console.log('###### Higher Order Functions ######');
+
+/**
+ * HFC is a function that accepts function as a parameter and can also return a function
+ */
+
+const processIpFunc = function (str, func) {
+  console.log(`Before Processing = `, str);
+  return func(str);
+};
+
+const convertLowerToUpper = function (str) {
+  return console.log(`After Processing = `, str.toUpperCase());
+};
+
+processIpFunc('family guy show', convertLowerToUpper);
