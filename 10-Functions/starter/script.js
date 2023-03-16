@@ -64,3 +64,27 @@ const convertLowerToUpper = function (str) {
 };
 
 processIpFunc('family guy show', convertLowerToUpper);
+
+// ###### Functions returning functions ######
+console.log('');
+console.log('###### Functions returning functions ######');
+
+/**
+ * Function call returns a value => if function return a function then we can call the received result
+ */
+
+const greetMe = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greetIndividual = greetMe('Good Morning');
+greetIndividual('Peter Griffin');
+
+greetMe('Good Evening')('Stewie');
+
+// Arrow function returning function
+const greetMeArrow = greeting => name => console.log(`${greeting} ${name}`);
+
+greetMeArrow('hello')('Brian');
