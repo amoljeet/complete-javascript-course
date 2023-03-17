@@ -88,3 +88,56 @@ greetMe('Good Evening')('Stewie');
 const greetMeArrow = greeting => name => console.log(`${greeting} ${name}`);
 
 greetMeArrow('hello')('Brian');
+
+// ###### Call and Apply Methods ######
+console.log('');
+console.log('###### Call and Apply Methods ######');
+
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+  bookFlight(flightNum, name) {
+    console.log(
+      `${name} your seat booked on ${this.airline} in ${flightNum} ${this.iataCode}`
+    );
+
+    this.bookings.push({ flight: `${this.iataCode} ${this.airline}`, name });
+  },
+};
+
+lufthansa.bookFlight('123', 'Peter Griffine');
+lufthansa.bookFlight('456', 'Stewie');
+
+const euroWings = {
+  airline: 'Eurowings',
+  iataCode: 'EW',
+  bookings: [],
+};
+
+// Call Method
+
+/**
+ * A function is just an object and objects have methods so functions can have methods too, call is one such method
+ *
+ * JS has 1st class functions and we can store that inside another variable
+ */
+
+const bookAnyAirlineFlight = lufthansa.bookFlight;
+
+bookAnyAirlineFlight.call(euroWings, '789', 'Brian Griffin');
+console.log(euroWings);
+
+const swissAirlines = {
+  airline: 'Swiss Airline',
+  iataCode: 'LX',
+  bookings: [],
+};
+
+bookAnyAirlineFlight.call(swissAirlines, '357', 'Chris Griffin');
+console.log(swissAirlines);
+
+// Apply Method
+const flightDataApply = ['274', 'Joe Swanson'];
+bookAnyAirlineFlight.apply(swissAirlines, flightDataApply);
+console.log(swissAirlines);
