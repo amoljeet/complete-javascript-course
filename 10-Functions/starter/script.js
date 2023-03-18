@@ -141,3 +141,37 @@ console.log(swissAirlines);
 const flightDataApply = ['274', 'Joe Swanson'];
 bookAnyAirlineFlight.apply(swissAirlines, flightDataApply);
 console.log(swissAirlines);
+
+// ###### Bind Method ######
+console.log('');
+console.log('###### Bind Method #####');
+
+/**
+ * bind method also allows to set this keyword for function call
+ *
+ * difference is it doest not immediately call the function instead it returns new function whereever this keyword is bound
+ */
+
+const bookEW = bookAnyAirlineFlight.bind(euroWings);
+const bookLH = bookAnyAirlineFlight.bind(lufthansa);
+const bookLX = bookAnyAirlineFlight.bind(swissAirlines);
+
+bookEW('259', 'Glenn');
+
+// Bind default parameter
+const bookEW23 = bookAnyAirlineFlight.bind(euroWings, '23');
+bookEW23('Lois');
+bookEW23('Meg');
+
+// With Event listeners
+lufthansa.planes = 300;
+lufthansa.buyPlane = function () {
+  console.log(this);
+
+  this.planes++;
+  console.log(this.planes);
+};
+
+document
+  .querySelector('.buy')
+  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
