@@ -191,3 +191,30 @@ console.log('###### Immediately invoked function expression ######');
 })();
 
 (() => console.log('This will also print only once'))();
+
+// ###### Closures ######
+console.log('');
+console.log('###### Closures ######');
+
+/**
+ * Any function always have access to the variable environment of the Execution context on which it was created (even after that execution context has gone)
+ *
+ * A closure is like that execution environment attached to the function (as it was at time and place when the function was created)
+ *
+ * A closure is a closed over variable environment of the execution context in which a function was created even after that execution context is gone
+ */
+
+const secureBooking = function () {
+  let passengerCount = 0;
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+booker();
+booker();
+booker();
+
+console.dir(booker);
