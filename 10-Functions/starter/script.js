@@ -175,3 +175,19 @@ lufthansa.buyPlane = function () {
 document
   .querySelector('.buy')
   .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+// ###### Immediately Invoked Function Expression ######
+console.log('');
+console.log('###### Immediately invoked function expression ######');
+
+/**
+ * In moderny JS if we wish to keep any variable private then we can add that inside curly brackets (except var) no need for IIFE
+ *
+ * IIFE is used when we wish to execute function only once
+ */
+
+(function () {
+  console.log('This will print only once');
+})();
+
+(() => console.log('This will also print only once'))();
