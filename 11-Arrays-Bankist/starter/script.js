@@ -71,8 +71,6 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
 /////////////////////////////////////////////////
 
 /**
@@ -155,3 +153,25 @@ const atArray = [1, 2, 3, 4, 5];
 console.log('1st element of array = ', atArray[0]);
 console.log('1st element of array = ', atArray.at(0));
 console.log('Last element = ', atArray.at(-1));
+
+/**
+ * Looping arrays - forEach
+ *
+ * forEach is a higher order function that requires callback function to tell what to do
+ *
+ * we use callback function to tell higher order function what to do
+ *
+ * in each iteration it will call the callback function with array element as parameter
+ *
+ * continue and break doesnt work on forEach
+ */
+console.log('');
+console.log('##### forEach #####');
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+movements.forEach(function (movement, index, arrayItself) {
+  if (movement > 1000) {
+    console.log(`${movement} at ${index} position in ${arrayItself}`);
+  }
+});
