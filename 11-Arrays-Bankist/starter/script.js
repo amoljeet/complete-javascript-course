@@ -74,3 +74,75 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
+/**
+ * Methods are simply functions that we can call on objects
+ *
+ * These are functions attached to objects
+ *
+ * if we have array methods that means arrays themselves are also objects, array methods are simply functions that are attached to all arrays we create in JS
+ */
+
+console.log('##### Simple Array Methods #####');
+
+/**
+ * Slice Method
+ *
+ * we can extract part of array without changing original array
+ *
+ * we have begin parameter => from where to start extracting
+ *
+ * return new array
+ */
+
+let simpleArray = ['a', 'b', 'c', 'd', 'e'];
+console.log('slice only begin param = ', simpleArray.slice(2));
+console.log('slice begin and end param = ', simpleArray.slice(2, 4));
+console.log('-ive parameter to get last elements = ', simpleArray.slice(-2));
+console.log('Extrace from index 1 except last 2', simpleArray.slice(1, -2));
+console.log('Shallow copy of array = ', simpleArray.slice());
+
+/**
+ * Splice Method
+ *
+ * Works similar to slice method but changes the original array
+ *
+ * 1st param = starting index
+ * 2nd param = no of elements to be removed (diff from slice)
+ */
+
+console.log('Last element removed permanently = ', simpleArray.splice(-1));
+console.log('Original array = ', simpleArray);
+console.log('2 removed elements = ', simpleArray.splice(1, 2));
+
+/**
+ * Reverse Method
+ *
+ * Mutates the original Array
+ */
+
+simpleArray = ['a', 'b', 'c', 'd', 'e'];
+console.log('Reverse of an array = ', simpleArray.reverse());
+console.log('Original array mutated = ', simpleArray);
+
+simpleArray = ['a', 'b', 'c', 'd', 'e'];
+const anotherArray = ['f', 'g', 'h', 'i'];
+
+/**
+ * Concat method
+ *
+ * doesn't mutate original array
+ *
+ */
+
+const letters = simpleArray.concat(anotherArray);
+console.log('Array after concatenation = ', letters);
+console.log('All elements = ', [...simpleArray, ...anotherArray]);
+
+/**
+ * Join method
+ *
+ * Returns string
+ */
+
+console.log('Join method = ', letters.join(' - '));
