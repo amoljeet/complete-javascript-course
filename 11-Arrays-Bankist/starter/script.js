@@ -146,3 +146,12 @@ console.log('All elements = ', [...simpleArray, ...anotherArray]);
  */
 
 console.log('Join method = ', letters.join(' - '));
+
+// ##### At method #####
+console.log('');
+console.log('##### At method #####');
+
+const atArray = [1, 2, 3, 4, 5];
+console.log('1st element of array = ', atArray[0]);
+console.log('1st element of array = ', atArray.at(0));
+console.log('Last element = ', atArray.at(-1));
