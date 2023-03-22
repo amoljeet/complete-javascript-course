@@ -61,6 +61,7 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+// Display deposit withdrawal
 const displayMovements = function (movements) {
   containerMovements.innerHTML = '';
 
@@ -82,6 +83,18 @@ const displayMovements = function (movements) {
 };
 
 displayMovements(account1.movements);
+
+// Create Username for each account
+const createUserName = function (userAccounts) {
+  userAccounts.forEach(function (account) {
+    account.username = account.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+createUserName(accounts);
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
