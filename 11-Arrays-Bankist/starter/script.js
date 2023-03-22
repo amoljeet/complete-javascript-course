@@ -84,6 +84,15 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
+// Calculate Display balance
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, mov) => {
+    return acc + mov;
+  }, 0);
+  labelBalance.textContent = `${balance} EUR`;
+};
+calcDisplayBalance(account1.movements);
+
 // Create Username for each account
 const createUserName = function (userAccounts) {
   userAccounts.forEach(function (account) {
@@ -280,3 +289,40 @@ const deposits = movements.filter(function (mov) {
 
 console.log('Original movements = ', movements);
 console.log('Deposits = ', deposits);
+
+/**
+ * Reduce Method
+ *
+ * reduce all the elements of an array into one single value
+ *
+ * reduce method has 2 params => one callback function and other initial value of accumulator
+ *
+ * 1st param of callback is accumulator which keeps accumulating the value in each iteration
+ */
+
+console.log('');
+console.log('##### Reduce Method #####');
+
+console.log('Original Movements arr = ', movements);
+
+const balance = movements.reduce(function (
+  accumulator,
+  currentVal,
+  index,
+  arrItself
+) {
+  return accumulator + currentVal;
+},
+0);
+
+console.log('Balance = ', balance);
+
+// Maximum value
+const maxValRed = movements.reduce((acc, mov) => {
+  if (acc > mov) {
+    return acc;
+  } else {
+    return mov;
+  }
+}, movements[0]);
+console.log('Largest value in movements = ', maxValRed);
