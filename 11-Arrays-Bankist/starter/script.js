@@ -61,6 +61,7 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+// Display deposit withdrawal
 const displayMovements = function (movements) {
   containerMovements.innerHTML = '';
 
@@ -82,6 +83,18 @@ const displayMovements = function (movements) {
 };
 
 displayMovements(account1.movements);
+
+// Create Username for each account
+const createUserName = function (userAccounts) {
+  userAccounts.forEach(function (account) {
+    account.username = account.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+createUserName(accounts);
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -218,3 +231,33 @@ console.log('Set currency = ', currenciesSet);
 currenciesSet.forEach((value, key, map) => {
   console.log(`${key} : ${value}`);
 });
+
+/**
+ * Map method
+ *
+ * another way to loop over an array but this method will return a brand new array, this new array in each position will contain the result of callback function applied on each element
+ */
+
+const eurToUsd = 1.1;
+
+const movementsUsd = movements.map(function (move) {
+  return move * eurToUsd;
+});
+
+console.log('Movements in Euro = ', movements);
+console.log('Movements in US Dollar = ', movementsUsd);
+
+/**
+ * Multiple Params Map method
+ *
+ * In forEach method we were printing everything in console with each iteration which is a side effect
+ *
+ * in Map method we are creating a brand new array
+ */
+
+const movementsDesc = movements.map((move, index) => {
+  return `Movement ${index + 1} you ${
+    move > 0 ? 'deposited' : 'withdraw'
+  } ${Math.abs(move)}`;
+});
+console.log('Movements Desc = ', movementsDesc);
