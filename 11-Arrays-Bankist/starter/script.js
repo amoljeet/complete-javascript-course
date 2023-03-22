@@ -238,6 +238,9 @@ currenciesSet.forEach((value, key, map) => {
  * another way to loop over an array but this method will return a brand new array, this new array in each position will contain the result of callback function applied on each element
  */
 
+console.log('');
+console.log('##### Map Method #####');
+
 const eurToUsd = 1.1;
 
 const movementsUsd = movements.map(function (move) {
@@ -261,3 +264,19 @@ const movementsDesc = movements.map((move, index) => {
   } ${Math.abs(move)}`;
 });
 console.log('Movements Desc = ', movementsDesc);
+
+/**
+ * Filter Method
+ *
+ * returns boolean => that element is returned for which boolean is true
+ */
+
+console.log('');
+console.log('##### Filter Method #####');
+
+const deposits = movements.filter(function (mov) {
+  return mov > 0;
+});
+
+console.log('Original movements = ', movements);
+console.log('Deposits = ', deposits);
