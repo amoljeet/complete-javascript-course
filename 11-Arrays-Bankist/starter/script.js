@@ -360,3 +360,32 @@ const chainResult = arrayOfNumsChain
   .map(num => num * 2)
   .reduce((acc, num) => acc + num, 0);
 console.log('Chaining result ', chainResult);
+
+/**
+ * Find Method
+ *
+ * It will not return new array but first element that satisfies the condition
+ *
+ * filter method returns all the elements that returns the condition while find method returns the first element that match the condition
+ */
+
+const peterCharac = {
+  name: 'Peter Griffin',
+  character: 'Family guy',
+  occupation: 'Pawtucket brewery',
+};
+const brianCharac = {
+  name: 'Brian Griffin',
+  character: 'Dog',
+  occupation: 'Pet',
+};
+const stewieCharac = {
+  name: 'Stewie griffin',
+  character: 'Toddler',
+  occupation: 'child',
+};
+const familyFuyCharactersFind = [peterCharac, brianCharac, stewieCharac];
+const characterFound = familyFuyCharactersFind.find(
+  character => character.name === 'Stewie griffin'
+);
+console.log('Character found = ', characterFound);
