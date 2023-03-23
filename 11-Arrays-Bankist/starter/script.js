@@ -93,6 +93,27 @@ const calcDisplayBalance = function (movements) {
 };
 calcDisplayBalance(account1.movements);
 
+// Calculate display message
+const calcDisplaySummary = function (movements) {
+  const incomes = movements
+    .filter(mov => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumIn.textContent = `${incomes}£`;
+
+  const out = movements
+    .filter(mov => mov < 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumOut.textContent = `${Math.abs(out)}£`;
+
+  const interest = movements
+    .filter(mov => mov > 0)
+    .map(deposit => (deposit * 1.2) / 100)
+    .filter(int => int >= 1)
+    .reduce((acc, int) => acc + int, 0);
+  labelSumInterest.textContent = `${interest}£`;
+};
+calcDisplaySummary(account1.movements);
+
 // Create Username for each account
 const createUserName = function (userAccounts) {
   userAccounts.forEach(function (account) {
@@ -326,3 +347,16 @@ const maxValRed = movements.reduce((acc, mov) => {
   }
 }, movements[0]);
 console.log('Largest value in movements = ', maxValRed);
+
+/**
+ * Chaining Methods
+ *
+ * We can only chain method after another one if first one returns an array
+ */
+
+const arrayOfNumsChain = [1, 5, 7, -2, 44, -33, 56, 23, 77, -99];
+const chainResult = arrayOfNumsChain
+  .filter(num => num > 0)
+  .map(num => num * 2)
+  .reduce((acc, num) => acc + num, 0);
+console.log('Chaining result ', chainResult);
