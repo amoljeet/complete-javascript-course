@@ -161,7 +161,6 @@ btnLogin.addEventListener('click', function (event) {
 });
 
 // Transfer amount
-
 btnTransfer.addEventListener('click', function (event) {
   event.preventDefault();
 
@@ -185,6 +184,25 @@ btnTransfer.addEventListener('click', function (event) {
     // Update UI
     updateUI(currentAccount);
   }
+});
+
+// close account
+btnClose.addEventListener('click', function (event) {
+  event.preventDefault();
+  if (
+    inputCloseUsername.value === currentAccount.username &&
+    Number(inputClosePin.value) === currentAccount.pin
+  ) {
+    const index = accounts.findIndex(
+      acc => acc.username === currentAccount.username
+    );
+    // Delete account
+    accounts.splice(index, 1);
+
+    // Hide UI
+    containerApp.style.opacity = 100;
+  }
+  inputCloseUsername.value = inputClosePin.value = '';
 });
 
 /////////////////////////////////////////////////
