@@ -62,10 +62,13 @@ const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
 // Display deposit withdrawal
-const displayMovements = function (movements) {
+const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = '';
 
-  movements.forEach(function (mov, index) {
+  // sort array (used slice to create copy and not sort original array)
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
+  movs.forEach(function (mov, index) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
     const html = `
@@ -219,6 +222,13 @@ btnClose.addEventListener('click', function (event) {
     containerApp.style.opacity = 100;
   }
   inputCloseUsername.value = inputClosePin.value = '';
+});
+
+let sorted = false;
+btnSort.addEventListener('click', function (event) {
+  event.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
 });
 
 /////////////////////////////////////////////////
@@ -565,3 +575,34 @@ const overallBalance2 = accounts
   .flatMap(acc => acc.movements)
   .reduce((acc, mov) => acc + mov, 0);
 console.log('Overall balance = ', overallBalance2);
+
+/**
+ * Sorting Arrays
+ *
+ * sort method mutates the original array
+ * sort method do sorting based on strings (convert everything to string and then sort)
+ */
+
+// strings
+const stringArraysort = ['peter', 'chris', 'meg', 'brian'];
+console.log('Array after sort = ', stringArraysort.sort());
+
+// number
+// Ascending
+// return < 0, A,B (same order)
+// return > 0 ,B,A (reverse order)
+console.log('Before sorting = ', movements);
+// movements.sort((currentVal, nextVal) => {
+//   if (currentVal > nextVal) return 1;
+//   if (currentVal < nextVal) return -1;
+// });
+movements.sort((a, b) => a - b);
+console.log('After sorting Ascending = ', movements);
+
+// Descending
+// movements.sort((currentVal, nextVal) => {
+//   if (currentVal > nextVal) return -1;
+//   if (currentVal < nextVal) return 1;
+// });
+movements.sort((a, b) => b - a);
+console.log('After sorting descending = ', movements);
