@@ -186,6 +186,22 @@ btnTransfer.addEventListener('click', function (event) {
   }
 });
 
+// Loan
+btnLoan.addEventListener('click', function (event) {
+  event.preventDefault();
+
+  const amount = Number(inputLoanAmount.value);
+
+  if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
+    // Add movement
+    currentAccount.movement.push(amount);
+
+    // Update UI
+    updateUI(currentAccount);
+    inputLoanAmount.value = '';
+  }
+});
+
 // close account
 btnClose.addEventListener('click', function (event) {
   event.preventDefault();
@@ -468,3 +484,43 @@ const characterFound = familyFuyCharactersFind.find(
   character => character.name === 'Stewie griffin'
 );
 console.log('Character found = ', characterFound);
+
+/**
+ * Some method
+ */
+
+console.log('');
+console.log('##### Some and every method #####');
+
+console.log('Movements array = ', movements);
+
+// Equality
+console.log('Is 3000 part of array = ', movements.includes(3000));
+
+// condition
+console.log(
+  'Does array contain values greater than 1000 = ',
+  movements.some(mov => mov > 0)
+);
+console.log(
+  'Does array contain values greater than 5000 = ',
+  movements.some(mov => mov > 5000)
+);
+
+/**
+ * Every Method
+ *
+ * Returns true if every element of array satisfies the condition
+ */
+
+const firstEveryArray = [1, 1, 1, 1, 1];
+console.log(
+  'Is every element of array is 1 = ',
+  firstEveryArray.every(elem => elem === 1)
+);
+
+const secondEveryArray = [2, 4, 5, 77, 54];
+console.log(
+  'Is every element of array is > 10',
+  secondEveryArray.every(elem => elem > 10)
+);
