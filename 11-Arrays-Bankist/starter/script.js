@@ -606,3 +606,37 @@ console.log('After sorting Ascending = ', movements);
 // });
 movements.sort((a, b) => b - a);
 console.log('After sorting descending = ', movements);
+
+/**
+ * fill method
+ */
+
+// Empty array
+const emptyArr = new Array(5);
+console.log('Arr = ', emptyArr);
+
+console.log('fill number 2 at position = ', emptyArr.fill(2, 2, 4));
+
+/**
+ * from method
+ *
+ * we use _ when we dont wish to use the param
+ */
+
+const createArr = Array.from({ length: 5 }, () => 1);
+console.log('array = ', createArr);
+
+const createArr2 = Array.from({ length: 7 }, (_, index) => index + 1);
+console.log('Array = ', createArr2);
+
+// fetch array from dom
+labelBalance.addEventListener('click', function () {
+  const movementsUI = Array.from(
+    document.querySelectorAll('.movements__value'),
+    el => Number(el.textContent.replace('€', ''))
+  );
+  console.log(movementsUI);
+
+  const movementsUI2 = [...document.querySelectorAll('.movements__value')];
+  console.log(movementsUI2);
+});
