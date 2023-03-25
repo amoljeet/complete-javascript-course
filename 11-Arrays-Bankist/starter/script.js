@@ -524,3 +524,44 @@ console.log(
   'Is every element of array is > 10',
   secondEveryArray.every(elem => elem > 10)
 );
+
+/**
+ * Flat method
+ *
+ * flat method can go one level deep
+ */
+
+const nonFlatArr = [
+  [1, 2, 3],
+  [4, 5],
+  [7, 8, 9],
+];
+console.log('Flat array = ', nonFlatArr.flat());
+
+const nonFlatArrSecLevl = [
+  [[1, 2], 3],
+  [4, 5, [7, 8, 9]],
+];
+console.log('Without deep param = ', nonFlatArrSecLevl.flat());
+console.log('With deep param = ', nonFlatArrSecLevl.flat(2));
+
+/**
+ * Map flat method
+ *
+ * map flat combines map and flat method
+ *
+ * flat map goes only one level deep and we cannot change it
+ */
+
+// flat
+const overallBalance = accounts
+  .map(acc => acc.movements)
+  .flat()
+  .reduce((acc, mov) => acc + mov, 0);
+console.log('Overall balance = ', overallBalance);
+
+// flat map
+const overallBalance2 = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((acc, mov) => acc + mov, 0);
+console.log('Overall balance = ', overallBalance2);
