@@ -94,7 +94,7 @@ const displayMovements = function (movements, sort = false) {
         <div class="movements__type movements__type--${type}">${
       i + 1
     } ${type}</div>
-        <div class="movements__value">${mov}€</div>
+        <div class="movements__value">${mov.toFixed(2)}€</div>
       </div>
     `;
 
@@ -111,12 +111,12 @@ const calcDisplaySummary = function (acc) {
   const incomes = acc.movements
     .filter(mov => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumIn.textContent = `${incomes}€`;
+  labelSumIn.textContent = `${incomes.toFixed(2)}€`;
 
   const out = acc.movements
     .filter(mov => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumOut.textContent = `${Math.abs(out)}€`;
+  labelSumOut.textContent = `${Math.abs(out).toFixed(2)}€`;
 
   const interest = acc.movements
     .filter(mov => mov > 0)
@@ -126,7 +126,7 @@ const calcDisplaySummary = function (acc) {
       return int >= 1;
     })
     .reduce((acc, int) => acc + int, 0);
-  labelSumInterest.textContent = `${interest}€`;
+  labelSumInterest.textContent = `${interest.toFixed(2)}€`;
 };
 
 const createUsernames = function (accs) {
@@ -206,7 +206,7 @@ btnTransfer.addEventListener('click', function (e) {
 btnLoan.addEventListener('click', function (e) {
   e.preventDefault();
 
-  const amount = +inputLoanAmount.value;
+  const amount = Math.floor(inputLoanAmount.value);
 
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
     // Add movement
@@ -291,3 +291,39 @@ console.log(Number.isFinite(23 / 0));
 console.log(Number.isInteger(23));
 console.log(Number.isInteger(23.0));
 console.log(Number.isInteger(23 / 0));
+
+/**
+ * Math and rounding
+ */
+
+console.log('');
+console.log('##### Math and rounding #####');
+
+console.log('Square root of 25 = ', Math.sqrt(25));
+console.log('Exponential value = ', 5 ** 3);
+
+console.log('Max value = ', Math.max(5, 17, 44, 67, 2));
+console.log('Max value with type coercion = ', Math.max(5, 17, 44, '67', 2));
+console.log('Min value = ', Math.min(5, 17, 44, 67, 2));
+console.log('Area of circle = ', Math.PI * Number.parseFloat('10px') ** 2);
+
+console.log('Random value from 1 & 6 = ', Math.trunc(Math.random() * 6) + 1);
+
+// rounding integers
+console.log('Round off 23.3 = ', Math.round(23.3));
+console.log('Round off 23.9 = ', Math.round(23.9));
+
+console.log('Ceil 23.3 = ', Math.ceil(23.3));
+console.log('Ceil 23.9 = ', Math.ceil(23.9));
+
+console.log('Floor 23.3 = ', Math.floor(23.3));
+console.log('Floor 23.9 = ', Math.floor(23.9));
+console.log('Floor 23.9 type coercion = ', Math.floor('23.9'));
+console.log('Floor -ive -23.3 = ', Math.floor(-23.3));
+console.log('Trunc 23.3 = ', Math.trunc(-23.3));
+
+// rounding decimals
+console.log('to fixed return string = ', (2.7).toFixed(0));
+console.log('round decimal = ', (2.7).toFixed(3));
+console.log('round decimal string format = ', (2.345).toFixed(2));
+console.log('round decimal number format = ', +(2.345).toFixed(2));
