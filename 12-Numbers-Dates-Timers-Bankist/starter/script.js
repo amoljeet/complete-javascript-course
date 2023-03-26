@@ -342,5 +342,32 @@ console.log('Result 5 divided by 2 = ', 5 / 2);
  * Numeric Separators
  */
 
+console.log('');
+console.log('##### Numeric Separators #####');
+
 const numericSepNum = 1_00_00_000;
 console.log('Number as it is = ', numericSepNum);
+
+/**
+ * BigInt
+ *
+ * can store large numbers
+ */
+
+console.log('');
+console.log('##### BigInt #####');
+
+console.log('Biggest number JS can represent = ', 2 ** 53 - 1);
+console.log('Max safe integer = ', Number.MAX_SAFE_INTEGER);
+
+console.log('Big int = ', 42348567324856832434123535342341234653245n);
+console.log('Big Int = ', BigInt(4234856734653245));
+
+// exceptions
+console.log('Strict equality = ', 20n === 20);
+console.log('Loose equality = ', 20n == 20);
+console.log(typeof 20n);
+
+// Divisions
+console.log('Divison bigInt = ', 10n / 3n);
+console.log('division = ', 10 / 3);
