@@ -337,3 +337,10 @@ console.log('##### Remainder Operator #####');
 
 console.log('Remainder 5 divided by 2 = ', 5 % 2);
 console.log('Result 5 divided by 2 = ', 5 / 2);
+
+/**
+ * Numeric Separators
+ */
+
+const numericSepNum = 1_00_00_000;
+console.log('Number as it is = ', numericSepNum);
