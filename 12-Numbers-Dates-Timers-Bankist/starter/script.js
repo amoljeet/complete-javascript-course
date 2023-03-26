@@ -327,3 +327,13 @@ console.log('to fixed return string = ', (2.7).toFixed(0));
 console.log('round decimal = ', (2.7).toFixed(3));
 console.log('round decimal string format = ', (2.345).toFixed(2));
 console.log('round decimal number format = ', +(2.345).toFixed(2));
+
+/**
+ * Remainder operator
+ */
+
+console.log('');
+console.log('##### Remainder Operator #####');
+
+console.log('Remainder 5 divided by 2 = ', 5 % 2);
+console.log('Result 5 divided by 2 = ', 5 / 2);
