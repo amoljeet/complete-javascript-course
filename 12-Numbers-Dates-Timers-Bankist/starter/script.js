@@ -371,3 +371,13 @@ console.log(typeof 20n);
 // Divisions
 console.log('Divison bigInt = ', 10n / 3n);
 console.log('division = ', 10 / 3);
+
+/**
+ * Dates
+ */
+
+console.log('');
+console.log('##### Date #####');
+
+const now = new Date();
+console.log('Now = ', now);
