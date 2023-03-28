@@ -425,3 +425,15 @@ const calcDaysPassed = (date1, date2) =>
 
 const days1 = calcDaysPassed(new Date(2037, 3, 4), new Date(2037, 3, 14));
 console.log('No of days b/w = ', days1);
+
+/**
+ * Internationalising Dates
+ */
+
+const todayIs = new Date();
+console.log('Today is = ', todayIs);
+const intlDateFormatUK = new Intl.DateTimeFormat('en-GB').format(todayIs);
+console.log('Date format in UK = ', intlDateFormatUK);
+
+const intlDateFormatUS = new Intl.DateTimeFormat('en-US').format(todayIs);
+console.log('Date format in Cananda = ', intlDateFormatUS);
