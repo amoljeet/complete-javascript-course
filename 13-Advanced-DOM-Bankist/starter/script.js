@@ -28,3 +28,53 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
+
+/**
+ * Selecting
+ *
+ * HTML collection is live collection if DOM changes then this also immediately updated
+ */
+
+console.log(document.documentElement);
+console.log(document.head);
+console.log(document.body);
+
+const header = document.querySelector('.header');
+const allSections = document.querySelectorAll('.section');
+console.log('Node list containing all section elems = ', allSections);
+
+document.getElementById('section-1');
+
+const allButtons = document.getElementsByTagName('button');
+console.log('All buttons HTMl collection = ', allButtons);
+
+console.log(document.getElementsByClassName('btn'));
+
+/**
+ * Creating and inserting elements
+ *
+ * DOM element is unique it cannot be at two places same time
+ *
+ * Prepend makes element 1st child so added first
+ * append makes element last chils so added at end
+ */
+
+const message = document.createElement('div');
+message.classList.add('cookie-message');
+// message.textContent = "We use cookies for improved functionality and analysis"
+message.innerHTML =
+  'We use cookies for improved functionality and analytics. <button class="btn btn--close-cookie">Got It</button>';
+
+// header.prepend(message);
+header.append(message);
+// header.append(message.cloneNode(true));
+
+// header.before(message);
+// header.after(message);
+
+// Delete elements
+document
+  .querySelector('.btn--close-cookie')
+  .addEventListener('click', function () {
+    message.remove();
+  });
