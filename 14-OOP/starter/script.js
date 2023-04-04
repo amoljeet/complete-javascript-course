@@ -16,6 +16,9 @@
  * never create methods inside constructor functions => if we create 1000 objects then 1000 objects will create this methods
  */
 
+console.log('');
+console.log('##### Constructor Functions #####');
+
 const Person = function (firstName, birthYear) {
   // instance properties (will be available on all the instances created through constructor function)
   this.firstName = firstName;
@@ -32,8 +35,42 @@ const Person = function (firstName, birthYear) {
  * 4 - function automatically return {}
  */
 
-const Peter = new Person('Peter Griffin', 1900);
+const Peter = new Person('Peter Griffin', 1950);
 console.log('Result of constructor func = ', Peter);
 
 const Stewie = new Person('Stewie Griffin', 2000);
 console.log('Stewie const func result = ', Stewie);
+
+/**
+ * Prototypes
+ *
+ * Each and every fucnction in JS has a property called prototype
+ * Every object created by a certain constructor function has access to prototypes
+ *
+ * any object has access to methods from its prototypes
+ */
+
+console.log('');
+console.log('##### Prototypes #####');
+
+// single method is created which is accessible to all the objects with constructor function
+Person.prototype.calcAge = function () {
+  console.log('Age in 3000', 3000 - this.birthYear);
+};
+
+Peter.calcAge();
+
+console.log(Peter.__proto__);
+console.log(Peter.__proto__ === Person.prototype);
+
+console.log(Person.prototype.isPrototypeOf(Peter));
+console.log(Person.prototype.isPrototypeOf(Person));
+
+Person.prototype.species = 'Homo Sapiens';
+console.log(Peter, Stewie);
+
+console.log(Peter.species);
+console.log(Stewie.species);
+
+console.log(Peter.hasOwnProperty('firstName'));
+console.log(Peter.hasOwnProperty('species'));
