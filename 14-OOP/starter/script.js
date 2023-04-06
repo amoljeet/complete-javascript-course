@@ -74,3 +74,35 @@ console.log(Stewie.species);
 
 console.log(Peter.hasOwnProperty('firstName'));
 console.log(Peter.hasOwnProperty('species'));
+
+/**
+ * Prototypal Inheritance
+ *
+ * Mechanism for reusing the code
+ */
+
+console.log('');
+console.log('##### Prototypal inheritance');
+
+console.log(Peter.__proto__);
+console.log(Peter.__proto__.__proto__);
+console.log(Peter.__proto__.__proto__.__proto__);
+
+const protoArrEx = [1, 2, 2, 2, 3, 3, 3, 4];
+console.log(protoArrEx.__proto__);
+console.log(protoArrEx.__proto__ === Array.prototype);
+console.log(protoArrEx.__proto__.__proto__);
+
+/**
+ * Add new method in prototype property
+ *
+ * method created inside Array will be available for all the arrays
+ *
+ * not a good idea => in next JS version they might add method with same name
+ */
+
+Array.prototype.unique = function () {
+  return [...new Set(this)];
+};
+
+console.log(protoArrEx.unique());
