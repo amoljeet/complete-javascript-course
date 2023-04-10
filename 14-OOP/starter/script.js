@@ -106,3 +106,46 @@ Array.prototype.unique = function () {
 };
 
 console.log(protoArrEx.unique());
+
+/**
+ * ES6 classes
+ *
+ * Implement protypal inheritance behind the scenes just syntax sugar
+ *
+ * behind the scenes class are still functions
+ *
+ * methods created on outside of constructor will be created on the prototype of the object, not on the objects itself
+ */
+
+// Class expression
+// const PersonCl = class {}
+
+// class declaration
+
+class PersonCl {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+
+  calcAge() {
+    console.log(3000 - this.birthYear);
+  }
+}
+
+const megGriffin = new PersonCl('Meg', 2010);
+console.log('With ES6 class = ', megGriffin);
+
+console.log(megGriffin.__proto__ === PersonCl.prototype);
+
+PersonCl.prototype.greet = function () {
+  console.log(`Hey ${this.firstName}`);
+};
+
+megGriffin.greet();
+
+/**
+ * 1 - classes are not hoisted => cannot use them before they are declared
+ * 2 - classes are 1st class citizens => we can pass them into functions and return from functions
+ * 3 - classes are executed in strict mode
+ */
